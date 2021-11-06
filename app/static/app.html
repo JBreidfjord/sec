@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Diabetes Classifier </title>
-    <link rel="stylesheet" type="text/css" href="app.css">
+    <link rel="stylesheet" type="text/css" href="static/app.css">
     </head>
     <body>
         <h1 class="titleDiv">Welcome to the Diabetes Prediction Algorithm</h1>
@@ -15,7 +15,10 @@
                 <input type="submit" id="file_submit" formaction="/" method="post">
             </form>
         </div>
-        <p id="csv"></p>
+        <canvas id="predictions" width="500" height="500"></canvas>
+        <script> 
+            const graph = document.getElementById('preditions').getContext('2d');
+        </script>
         <script src="static/app.js"> </script>
     </body>
 </html>
