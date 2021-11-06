@@ -1,2 +1,7 @@
 ## SEC 2021 Jr Programming
-Learning
+
+**Team Members:**
+Hiten Mahalwar
+Jon Breidfjord
+Ben Holden
+Evan Mann
