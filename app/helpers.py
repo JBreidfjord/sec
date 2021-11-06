@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 
 def data_with_outcomes(filename: str):
@@ -11,3 +10,4 @@ def data_with_outcomes(filename: str):
     y = df["Outcome"]
     
     return X, y
+    
