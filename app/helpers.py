@@ -1,7 +1,10 @@
+from __future__ import annotations
+
 import pandas as pd
+from fastapi import UploadFile
 
 
-def process_data(filename: str):
+def process_data(filename: str | UploadFile) -> tuple[pd.DataFrame, pd.Series]:
     df = pd.read_csv(filename, na_values="")
 
     df = df.drop(columns=["Unnamed: 9", "Patient"])
