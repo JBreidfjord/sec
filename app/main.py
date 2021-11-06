@@ -8,7 +8,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return HTMLResponse(content=open("app/index.html", "r").read())
+    return HTMLResponse(content=open("app/app.html", "r").read())
 
 
 @app.post("/")
