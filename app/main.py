@@ -23,4 +23,5 @@ async def upload_file(data_file: UploadFile = File(...)):
     data = process_data(data_file.file)
     preds = get_predictions(data, model)
     data["Outcome"] = preds
+    print(data)
     return json.dumps(data.to_dict("index"))
