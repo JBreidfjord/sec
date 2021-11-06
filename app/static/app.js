@@ -9,19 +9,18 @@ document.getElementById("file_submit").onclick = async function () {
       return response.json();
     })
     .then((response) => {
-      console.log(response);
+      chartData(response);
     })
     .catch((error) => {
       console.error("Invalid file", error);
     });
-    
-    var ctx = document.getElementById('predictions');
-    var chart = new Chart(ctx, {
-        type:"bar",
-        data: formData,
-        options: {}
-    });
+};
 
+function chartData(data) {
+  var ctx = document.getElementById("predictions");
+  var chart = new Chart(ctx, {
+    type: "bar",
+    data: data,
+    options: {},
+  });
 }
-
-
