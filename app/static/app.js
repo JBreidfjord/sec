@@ -9,7 +9,8 @@ document.getElementById("file_submit").onclick = async function () {
       return response.json();
     })
     .then((response) => {
-      chartData(response);
+      data = JSON.parse(response);
+      chartData(data);
     })
     .catch((error) => {
       console.error("Invalid file", error);
