@@ -1,7 +1,6 @@
 import json
 import pickle
 
-import pandas as pd
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -23,5 +22,5 @@ async def upload_file(data_file: UploadFile = File(...)):
     data = process_data(data_file.file)
     preds = get_predictions(data, model)
     data["Outcome"] = preds
-    print(data)
+    data.to_csv("outcome_data.csv")
     return json.dumps(data.to_dict("index"))
