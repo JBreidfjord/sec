@@ -1,0 +1,14 @@
+.titleDiv {
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+}
+
+.fileDiv {
+    margin:auto;
+    padding: 30px;
+    border: solid;
+    border-color: grey;
+    border-radius: 10px;
+    text-align: center;
+}
