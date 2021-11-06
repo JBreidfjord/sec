@@ -20,7 +20,7 @@ async def root():
 
 @app.post("/")
 async def upload_file(data_file: UploadFile = File(...)):
-    x, patients = process_data(data_file.file)
-    preds = get_predictions(x, model)
-    data = pd.Series(preds, index=patients)
-    return json.dumps(data.to_dict())
+    data = process_data(data_file.file)
+    preds = get_predictions(data, model)
+    data["Outcome"] = preds
+    return json.dumps(data.to_dict("index"))

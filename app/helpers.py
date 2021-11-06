@@ -15,12 +15,11 @@ def process_data(filename: str | SpooledTemporaryFile, outcomes: bool = False):
     """
 
     df = pd.read_csv(filename)  # Store the uploaded .csv file in a DataFrame
-    patients = df["Patient"]
-    # Drop unnecessary columns
+    df.set_index("Patient", inplace=True)  # Set the index to the patient id
+
+    # Drop unnecessary column
     if "Unnamed: 9" in df.columns:
         df = df.drop(columns="Unnamed: 9")
-    if "Patient" in df.columns:
-        df = df.drop(columns="Patient")
 
     x = df.drop(columns="Outcome")  # Store x data without labels
     if outcomes:
@@ -30,8 +29,8 @@ def process_data(filename: str | SpooledTemporaryFile, outcomes: bool = False):
     # Return data with labels if outcomes is True
     if outcomes:
         return x, y
-    # Otherwise return data and patient numbers
-    return x, patients
+    # Otherwise return data
+    return x
 
 
 def get_predictions(x: pd.DataFrame, model: LogisticRegression) -> pd.Series:
