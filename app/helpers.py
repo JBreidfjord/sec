@@ -1,6 +1,6 @@
 import pandas as pd
 
-def data_with_outcomes(filename: str):
+def processed_data(filename: str):
     df = pd.read_csv(filename, na_values='')
 
     df = df.drop(columns=['Unnamed: 9', 'Patient'])
@@ -8,6 +8,5 @@ def data_with_outcomes(filename: str):
 
     X = df.drop(columns="Outcome")
     y = df["Outcome"]
-    
+    X = (X - X.mean()) / X.std()
     return X, y
-    
