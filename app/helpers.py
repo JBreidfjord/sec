@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from tempfile import SpooledTemporaryFile
+
 import pandas as pd
-from fastapi import UploadFile
 
 
-def process_data(filename: str | UploadFile) -> tuple[pd.DataFrame, pd.Series]:
+def process_data(filename: str | SpooledTemporaryFile) -> tuple[pd.DataFrame, pd.Series]:
     df = pd.read_csv(filename, na_values="")
 
     df = df.drop(columns=["Unnamed: 9", "Patient"])
